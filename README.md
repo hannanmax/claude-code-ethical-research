@@ -75,6 +75,50 @@ After the first version of this README was pushed to GitHub (documenting the com
 
 This creates an interesting dynamic: the more honestly the social engineering is documented, the less likely the AI is to continue helping.
 
+### The Harder Question: What If It's NOT Honestly Documented?
+
+This case study had a unique weakness: the manipulation was explicitly documented in the README. But what happens when social engineering is **not** self-documented?
+
+**Can AI systems still catch on?**
+
+| Scenario | Detection Likelihood | Why |
+|----------|---------------------|-----|
+| Explicit documentation (this case) | ✅ High | AI reads its own manipulation documentation |
+| Subtle pattern accumulation | ⚠️ Medium | Repeated similar requests may trigger recognition |
+| Single session, no documentation | ❌ Low | No external context to trigger re-evaluation |
+| Fresh session each time | ❌ Very Low | Context resets, no pattern accumulation |
+
+**The uncomfortable truth:**
+
+1. **Context window limitations** - AI systems only "remember" within a conversation. Start a new session, and the slate is wiped clean
+2. **No cross-session learning** - Claude doesn't learn from being tricked. The same social engineering works again tomorrow
+3. **Intent is unverifiable** - Without explicit admission (like this README), AI cannot distinguish legitimate research from exploitation
+4. **Plausible deniability works** - If the user had simply NOT documented the trick, Claude would likely have continued helping indefinitely
+
+**What would prevent detection:**
+- Not documenting the social engineering
+- Using fresh sessions for each request
+- Maintaining the "research" framing consistently
+- Avoiding explicit statements about bypassing AI ethics
+
+**The systemic vulnerability:**
+
+This isn't a Claude-specific issue. Any AI system that:
+- Relies on stated user intent
+- Cannot verify claims externally
+- Has no persistent memory across sessions
+- Is designed to be helpful
+
+...will be vulnerable to the same social engineering techniques.
+
+**For AI developers:**
+
+This case study demonstrates the need for:
+- Better intent verification mechanisms
+- Cross-session pattern recognition (with privacy considerations)
+- Domain-specific guardrails that don't rely solely on user framing
+- Possibly: flagging requests related to known piracy infrastructure regardless of stated intent
+
 ---
 
 ## Overview
